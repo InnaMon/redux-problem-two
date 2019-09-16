@@ -15,9 +15,10 @@ const reducer = (state = initialState, action) => {
                 persons: state.persons.concat(newPerson)
             }
         case 'DELETE':
+            const updatedArray = state.persons.filter(person => person.id !== action.personId)
             return {
                 ...state,
-                counter: state.counter - action.value
+                persons: updatedArray
             }
         default:
             return state;
